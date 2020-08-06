@@ -5,9 +5,14 @@ const server = express();
 
 server.use(express.json());
 
+server.get('/', (req, res) => {
+  res.send(`<h2>/api/posts</h2>`);
+});
+
 server.use('/api/posts', postsRouter);
 
-server.listen(4000, () => {
-    console.log('server go NYOOM');
-  });
-  
+const port = process.env.PORT || 4000;
+
+server.listen(port, () => {
+  console.log('server go NYOOM');
+});
